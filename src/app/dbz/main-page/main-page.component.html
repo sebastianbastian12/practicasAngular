@@ -1,0 +1,158 @@
+<!--- Anotacion#1 Prevent default con $event--------------------------------------------------------
+
+  <h1>Dragon Ball Z</h1>
+<hr>
+<div class="row">
+    <div class="col">
+        <h3>Personajes</h3>
+        <hr>
+        <ul>
+            <li>Krilin - 700</li>
+            <li>Goku - 15000</li>
+            <li>Vegeta - 8000</li>
+        </ul>
+    </div>
+
+    <div class="col">
+        <h3>Agregar Personaje</h3>
+        <hr>
+        <form (submit)="agregar($event)">
+            <input type="text" placeholder="Nombre">
+            <input type="text" placeholder="Poder">
+            <button type="submit">
+              Aregar Personaje
+            </button>
+        </form>
+    </div>
+
+</div> -------------------------------------------------->
+
+
+<!-- Anotacion#2
+Obteniendo valores del evento con (input), $event y event.targe.value. [] = para establecer un atributo ()= para llamar o emitir atributo
+  <h1>Dragon Ball Z</h1>
+<hr>
+<div class="row">
+    <div class="col">
+        <h3>Personajes</h3>
+        <hr>
+        <ul>
+            <li>Krilin - 700</li>
+            <li>Goku - 15000</li>
+            <li>Vegeta - 8000</li>
+        </ul>
+    </div>
+
+    <div class="col">
+        <h3>Agregar Personaje</h3>
+        <hr>
+        <form (ngSubmit)="agregar()">
+            <input type="text" placeholder="Nombre" [value]=nuevo.nombre (input)="cambiarNombre($event)">
+            <input type="text" placeholder="Poder" [value]=nuevo.poder>
+
+            <button type="submit">
+              Aregar Personaje
+            </button>
+        </form>
+    </div>
+
+</div> -->
+
+<!--Anotacion#3 Impresion de listas con *ng-for, agreagacion a array con push(), y objeto vacio para reiniciar en el evento de input
+
+  <h1>Dragon Ball Z</h1>
+<hr>
+<div class="row">
+    <div class="col">
+        <h3>Personajes</h3>
+        <hr>
+        <li *ngFor="let personaje of personajes; let i = index">
+            {{personaje.nombre}} - {{personaje.poder|number}}
+        </li>
+    </div>
+
+    <div class="col">
+        <h3>Agregar Personaje</h3>
+        <hr>
+        <form (ngSubmit)="agregar()">
+            <input type="text" placeholder="Nombre" name="nombre" [(ngModel)]=nuevo.nombre>
+            <input type="text" placeholder="Poder" name="poder" [(ngModel)]=nuevo.poder>
+
+            <button type="submit">
+              Aregar Personaje
+            </button>
+        </form>
+    </div>
+
+    <div class="col">
+        <h3>Personajes Comics</h3>
+        <hr>
+        <ul>
+            <li *ngFor="let comic of comics">
+                {{comic.name}} - {{comic.reference}}
+            </li>
+
+        </ul>
+    </div>
+
+    <div>
+        <div class="col">
+            <h3>Agregar Comic Personaje</h3>
+            <hr>
+            <form (ngSubmit)="add()">
+                <input type="text" placeholder="Name" name="name" [(ngModel)]=comic.name>
+                <input type="text" placeholder="reference" name="reference" [(ngModel)]=comic.reference>
+                <button type="submit">
+              Aregar Comic
+            </button>
+            </form>
+        </div>
+
+    </div>
+ -->
+
+<h1>Dragon Ball Z</h1>
+<hr>
+<div class="row">
+    <div class="col">
+        <app-personajes></app-personajes>
+    </div>
+
+    <div class="col">
+        <h3>Agregar Personaje</h3>
+        <hr>
+        <form (ngSubmit)="agregar()">
+            <input type="text" placeholder="Nombre" name="nombre" [(ngModel)]=nuevo.nombre>
+            <input type="text" placeholder="Poder" name="poder" [(ngModel)]=nuevo.poder>
+
+            <button type="submit">
+              Aregar Personaje
+            </button>
+        </form>
+    </div>
+
+    <div class="col">
+        <h3>Personajes Comics</h3>
+        <hr>
+        <ul>
+            <li *ngFor="let comic of comics">
+                {{comic.name}} - {{comic.reference}}
+            </li>
+
+        </ul>
+    </div>
+
+    <div>
+        <div class="col">
+            <h3>Agregar Comic Personaje</h3>
+            <hr>
+            <form (ngSubmit)="add()">
+                <input type="text" placeholder="Name" name="name" [(ngModel)]=comic.name>
+                <input type="text" placeholder="reference" name="reference" [(ngModel)]=comic.reference>
+                <button type="submit">
+              Aregar Comic
+            </button>
+            </form>
+        </div>
+
+    </div>

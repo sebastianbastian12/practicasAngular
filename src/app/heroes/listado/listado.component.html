@@ -1,0 +1,37 @@
+<p>listado</p>
+<div *ngIf="heroeBorrado != ''; else noBorrado">
+    <h3>Heroe Borrado: <small>{{heroeBorrado}}</small></h3>
+</div>
+<ng-template #noBorrado>
+    <h3>Ningún heroe borrado</h3>
+</ng-template>
+<button (click)="borrarPersonaje()">
+Borrar Personaje
+</button>
+
+
+<ul>
+    <li *ngFor='let heroe of heroes; let i = index'>
+        {{i+1}} - {{heroe}}
+    </li>
+    <br>
+    <li *ngFor="let multiple of digitos; let j = index">
+        {{multiple}} x 2 = {{j * 2}}
+    </li>
+</ul>
+
+<hr>
+<hr>
+
+<h2>Eres mayor de edad?</h2>
+<div *ngIf="edad >= '18'; else noMayor">
+    <span>{{mirarEdad}}</span>
+</div>
+
+<ng-template #noMayor>
+    <span>Lo siento eres menor de edad, tienes + {{edad}} + años</span>
+</ng-template>
+
+<button (click)="mirarMensaje()">
+Boton mayor de edad
+</button>
